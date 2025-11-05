@@ -16,7 +16,7 @@ async def get_temp(url: str, hour=(time.gmtime()).tm_hour ) -> int:
 async def temp_data(city: dict) -> dict:
     response = {}
     for name, loc in city.items():
-        response.update({name: await get_temp(f"https://api.open-meteo.com/v1/forecast?latitude={loc.get('latitude')}&longitude={loc.get('longitude')}&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m&forecast_days=1")})
+        response.update({name: await get_temp(f"https://api.open-meteo.com/v1/forecast?latitude={loc.get('latitude')}&longitude={loc.get('longitude')}&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m")})
     return response
 
 async def main():
